@@ -62,7 +62,7 @@ _The JumpboxPassword can be removed from this file, as we will be passing it in 
 - Once completed, ensure the files are saved and push all changes via your Git client. It is recommended to check within Azure DevOps to ensure the files have successfully been pushed.
 _For this example, we have pushed straight to the main branch, but you do have the option to push to a feature branch and then merge changes in via Pull Requests._
 
-## Step4 – Creating the environment
+## Step 4 – Creating the environment
 
 - Navigate to the "Environments" section under "Pipelines" within Azure DevOps
 
@@ -70,24 +70,24 @@ _For this example, we have pushed straight to the main branch, but you do have t
 
 - If you would like to set up an approval process for this environments (so deployments don’t automatically roll out):
   - Click the 3 dots in the top right corner and select "Approvals and checks". 
-  - From this menu you can add an "Approvals" gate, allowing you to define who should control if a deployment should be released to this environments.
+  - From this menu you can add an "Approvals" gate, allowing you to define who should control if a deployment should be released to this environments. Search for the desired approvers and configure as desired and select the “Create” button.
 
 ## Step 5 – Creating the pipeline
-- Navigate to the "Pipelines" section within Azure DevOps and select "New pipeline"
+- Within Azure DevOps Navigate to "Pipelines>New Pipeline" section then select the "Create Pipeline".
 
 - Select "Azure Repos Git" as the code source, select the repository you created in Step 1.
 
-- Choose "Existing Azure Pipelines YAML file", and from the drop down select the `/avs-pipeline.yml` file. Click continue.
+- Choose "Existing Azure Pipelines YAML file", and from the drop down select the `/avs-pipeline.yml` file or the file name you used in the earlier section. Select "Continue".
 
 - Before running the pipeline we need to add a secret variable for the jumpbox password. Select the Variables button in the top right, click "add a new variable", and add a new variable named `JumpboxPassword`. Select the "Keep this value secret" option before clicking ok. Click Save.  
 __Important: You will need ensure this password meets the [minimum requirements for VM passwords](https://learn.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm-)__  
 _If you are not deploying a jumpbox as part of this process, you can either skip this step and remove the jumpboxPassword parameter from the pipeline yml file or configure it with a blank value._
 
-- In the top right corner, select click "Run" to create the pipeline and kick off execution. If you want to save the pipeline but not run it, use the drop-down next to Run and select Save.
+- In the top right corner, select "Run" to create the pipeline and kick off execution. If you want to save the pipeline but not run it, use the drop-down arrow next to "Run" and select "Save".
 
-- Once the pipeline has started, you may need to authorize access to certain resources. From the "Pipelines" option within Azure DevOps, click on the pipeline you created and then click on the latest run. If there is a prompt asking for permission, click the view button and permit access to the service connection and queue. You will only need to do this when modifying either the service connection name, or the agent pool the task should run on.
+- Once the pipeline has started, you may need to authorize access to certain resources. Within Azure DevOps, navigate to "Pipelines>Pipelines" option click on the pipeline you created and then click on the latest run. If there is a prompt asking for permission, click the "view" button and permit access to the service connection and queue. You will only need to do this when modifying either the service connection name, or the agent pool the task should run on.
 
-- Within the pipeline you should see 2 stages, one for build (template validation), and one for the deployment. You can modify the pipeline to add additional environments, and using the Environments section under Pipelines you can control release gating.
+- Within the pipeline you should see 2 stages: one for build (template validation), and one for the deployment. You can modify the pipeline to add additional environments, and using the Environments section under Pipelines you can control release gating.
 
 ## Helpful Links:
 - [Azure VMware Solution ESLZ DevOps Guidance](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-platform-automation-and-devops)
