@@ -73,7 +73,7 @@ _For this example, we have pushed straight to the main branch, but you do have t
   - From this menu you can add an "Approvals" gate, allowing you to define who should control if a deployment should be released to this environments. Search for the desired approvers and configure as desired and select the “Create” button.
 
 ## Step 5 – Creating the pipeline
-- Within Azure DevOps Navigate to "Pipelines>New Pipeline" section then select the "Create Pipeline".
+- Within Azure DevOps Navigate to "Pipelines>New Pipeline" section then select the "Create Pipeline" button.
 
 - Select "Azure Repos Git" as the code source, select the repository you created in Step 1.
 
